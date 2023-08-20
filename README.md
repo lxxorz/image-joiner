@@ -18,7 +18,7 @@ pnpm add sharp image-joiner
 
 ```ts
  import {GridImageJoiner} from "image-joiner"
- const joiner = gridImageJoiner(4,4)
+ const joiner = new GridImageJoiner(4,4)
 ```
 
 ### Add image to container
