@@ -1,4 +1,4 @@
-import { GridImageJoiner } from "../src/main";
+import { GridImageJoiner } from "../src/GridImageJoiner";
 import { toMatchImageSnapshot } from "jest-image-snapshot";
 
 expect.extend({ toMatchImageSnapshot });
