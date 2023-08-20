@@ -63,6 +63,14 @@ export type DrawOptions = {
 
 ## Result
 
+### Gap
 ![](examples/gap.png)
 
+### Resize
+![](examples/resize.png)
 
+### Color
+![](examples/color.png)
+
+### Space
+![](examples/space.png)
