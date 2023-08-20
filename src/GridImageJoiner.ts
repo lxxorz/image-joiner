@@ -136,4 +136,8 @@ export class GridImageJoiner implements ImageJoiner {
     await Promise.all(all_composite);
     return ctx;
   }
+
+  clear() {
+    this.images.length = 0;
+  }
 }

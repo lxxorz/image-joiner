@@ -23,13 +23,11 @@ pnpm add sharp image-joiner
 
 ### Add image to container
 
-> note: **Must** wait for images to finish loading before calling draw()
-
 ```ts
-await joiner.loadImageFromLocal(file_name, {
-      row: i,
-      col: j,
-    })
+joiner.loadImageFromLocal(file_name, {
+  row: i,
+  col: j,
+})
 ```
 
 ### draw

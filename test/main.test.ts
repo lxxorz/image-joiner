@@ -95,3 +95,20 @@ test("resize", async () => {
   const image_buffer = await image_ctx.toFormat("png").toBuffer();
   expect(image_buffer).toMatchImageSnapshot();
 }, 250000);
+
+test("clear", async () => {
+  
+  const image_joiner = new GridImageJoiner(4, 4); // 4 rows, 4 columns
+  await image_joiner.loadImageFromLocal("./test/assets/images.jpg", {
+    row: 0,
+    col: 0,
+  });
+  const image_ctx = await image_joiner.draw();
+  /**
+   * ImageSnapshot only supports the PNG format
+   */
+  const image_buffer = await image_ctx.toFormat("png").toBuffer();
+  expect(image_buffer).toMatchImageSnapshot();
+  image_joiner.clear();
+  await expect(() => image_joiner.draw()).rejects.toThrow();
+})
