@@ -21,8 +21,10 @@ export interface GridItemOption {
   col_space?: number;
 }
 
+export type ImageContent = string | Buffer
+
 interface GridImageItem {
-  image: string | Buffer;
+  image: ImageContent | Promise<ImageContent>;
   option: GridItemOption;
 }
 
@@ -56,13 +58,9 @@ export class GridImageJoiner implements ImageJoiner {
     this.images.push(image);
   }
 
-  async loadImageFromLocal(path: string, options: GridItemOption) {
-    try {
-      const image = await this.loader.loadFileAsync(path);
+  loadImageFromLocal(path: string, options: GridItemOption) {
+      const image = this.loader.loadFileAsync(path)
       this.pushImage({ image, option: options });
-    } catch (error) {
-      console.error("Error adding PNG image:", error);
-    }
   }
 
   loadImageFromObj(image: string | Buffer, options: GridItemOption): void {
@@ -94,7 +92,7 @@ export class GridImageJoiner implements ImageJoiner {
       image_height = resize.height;
       image_width = resize.width;
     } else {
-      const { height, width } = await this.getImageSize(this.images[0].image);
+      const { height, width } = await this.getImageSize(await this.images[0].image);
       image_height = height;
       image_width = width;
     }
@@ -122,7 +120,7 @@ export class GridImageJoiner implements ImageJoiner {
         const { image, option } = image_item;
         const { row, col, row_space, col_space } = option;
 
-        const input_image = await sharp(image, { limitInputPixels: false })
+        const input_image = await sharp(await image, { limitInputPixels: false })
           .resize(image_width * col_space, image_height * row_space)
           .toBuffer();
 
