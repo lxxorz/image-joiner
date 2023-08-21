@@ -1,6 +1,6 @@
 # image-joiner 🖼️
 
-Fast and Easy node.js Image join Tool. 
+Fast and Easy node.js Image join Tool.
 
 ## Install
 
@@ -14,35 +14,22 @@ pnpm add sharp image-joiner
 
 ## Usage
 
-### Create grid container
-
 ```ts
  import {GridImageJoiner} from "image-joiner"
  const joiner = new GridImageJoiner(4,4)
-```
 
-### Add image to container
+  joiner.loadImageFromLocal(file_name, {
+    row: 0,
+    col: 0,
+  })
 
-```ts
-joiner.loadImageFromLocal(file_name, {
-  row: i,
-  col: j,
-})
-```
+  joiner.loadImageFromLocal(file_name, {
+    row: 1,
+    col: 1
+  })
 
-### Draw
-
- ```ts
- const image = joiner.draw()
- ```
-
-### Output
-
-**examples**: save as png file
-
-```ts
-const image = joiner.draw()
-image.toFormat("png").toFile("output.png")
+  const image = joiner.draw()
+  image.toFormat("png").toFile("output.png")
 ```
 
 ## Draw Options
