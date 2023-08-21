@@ -30,7 +30,7 @@ joiner.loadImageFromLocal(file_name, {
 })
 ```
 
-### draw
+### Draw
 
  ```ts
  const image = joiner.draw()
@@ -62,13 +62,17 @@ export type DrawOptions = {
 ## Result
 
 ### Gap
+
 ![](examples/gap.png)
 
 ### Resize
+
 ![](examples/resize.png)
 
 ### Color
+
 ![](examples/color.png)
 
 ### Space
+
 ![](examples/space.png)
