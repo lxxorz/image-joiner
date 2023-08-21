@@ -1,6 +1,6 @@
 {
 	"name": "image-joiner",
-	"version": "1.0.1-alpha.1",
+	"version": "1.0.1-alpha.2",
 	"description": "Easy and Fast Grid Image Joiner",
 	"author": "Bjorn<https://github.com/lxxorz>",
 	"packageManager": "pnpm@8.6.12",
