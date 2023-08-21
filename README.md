@@ -15,21 +15,32 @@ pnpm add sharp image-joiner
 ## Usage
 
 ```ts
- import {GridImageJoiner} from "image-joiner"
- const joiner = new GridImageJoiner(4,4)
+import { GridImageJoiner } from 'image-joiner'
 
-  joiner.loadImageFromLocal(file_name, {
-    row: 0,
-    col: 0,
+const joiner = new GridImageJoiner(2, 2)
+
+joiner.loadImageFromLocal("./image.jpg", {
+  row: 0,
+  col: 0,
+})
+
+joiner.loadImageFromLocal("./image.jpg", {
+  row: 1,
+  col: 1,
+})
+
+joiner
+  .draw({
+    background_color: { r: 0, g: 122, b: 40, alpha: 0.2},
   })
+  .then((image) => image.toFormat('png').toFile('output.png'))
 
-  joiner.loadImageFromLocal(file_name, {
-    row: 1,
-    col: 1
-  })
+```
 
-  const image = joiner.draw()
-  image.toFormat("png").toFile("output.png")
+## Load image from an existing image object
+
+```ts
+joiner.loadImageFromObj(image, options)
 ```
 
 ## Draw Options
@@ -46,20 +57,4 @@ export type DrawOptions = {
 }
 ```
 
-## Result
-
-### Gap
-
-![](examples/gap.png)
-
-### Resize
-
-![](examples/resize.png)
-
-### Color
-
-![](examples/color.png)
-
-### Space
-
-![](examples/space.png)
+![](examples/base.png)
