@@ -1,6 +1,6 @@
 {
 	"name": "image-joiner",
-	"version": "1.0.1-alpha.0",
+	"version": "1.0.1-alpha.1",
 	"description": "Easy and Fast Grid Image Joiner",
 	"author": "Bjorn<https://github.com/lxxorz>",
 	"packageManager": "pnpm@8.6.12",
@@ -9,7 +9,7 @@
 	"files": [
 		"/dist"
 	],
-	"license":"MIT",
+	"license": "MIT",
 	"devDependencies": {
 		"@types/jest": "^29.5.3",
 		"@types/jest-image-snapshot": "^6.2.0",
