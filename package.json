@@ -9,6 +9,12 @@
 	"files": [
 		"/dist"
 	],
+	"homepage": "https://github.com/lxxorz/image-joiner/blob/main/README.md",
+	"repository": {
+		"url": "https://github.com/lxxorz/image-joiner",
+		"type": "git"
+	},
+	"keywords": ["image", "merge", "join", "sharp", "grid", "node"],
 	"license": "MIT",
 	"devDependencies": {
 		"@types/jest": "^29.5.3",
