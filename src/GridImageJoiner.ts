@@ -19,6 +19,17 @@ export interface GridItemOption {
   col: number;
   row_space?: number;
   col_space?: number;
+  order?: number;
+}
+
+const DEFAULT_ORDER = 1;
+
+function getDefaultGridItem(): Required<Omit<GridItemOption, 'row' | 'col'>>{
+  return {
+    row_space: 1,
+    col_space: 1,
+    order: DEFAULT_ORDER,
+  };
 }
 
 export type ImageContent = string | Buffer
@@ -49,11 +60,9 @@ export class GridImageJoiner implements ImageJoiner {
   private pushImage(image: GridImageItem, path?: string) {
     assertExist(image, path);
     this.sizeCheck(image.option);
-    const { row_space = 1, col_space = 1 } = image.option;
     image.option = {
+      ...getDefaultGridItem(),
       ...image.option,
-      row_space,
-      col_space,
     };
     this.images.push(image);
   }
@@ -75,8 +84,11 @@ export class GridImageJoiner implements ImageJoiner {
       height: meta_data.height,
     };
   }
-
+  private sortImages() {
+    this.images.sort((a, b) => a.option.order - b.option.order);
+  }
   async draw(options: DrawOptions = {}) {
+    this.sortImages();
     if (this.images.length === 0) {
       throw new Error("No images to draw.");
     }
