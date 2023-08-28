@@ -43,6 +43,20 @@ joiner
 joiner.loadImageFromObj(image, options)
 ```
 
+## Grid Item Options
+
+You can specify the row_space and col_space of a grid item
+
+```ts
+export interface GridItemOption {
+  row: number;
+  col: number;
+  row_space?: number; // default 1
+  col_space?: number; // default 1
+  order?: number; // default 1
+}
+```
+
 ## Draw Options
 
 ```ts
